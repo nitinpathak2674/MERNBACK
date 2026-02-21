@@ -13,7 +13,14 @@ app.use(cookieParser());
 
 
 app.use(cors({
-    origin: ["http://localhost:3000", "https://mernfront-two.vercel.app"],
+    origin: function (origin, callback) {
+      
+        if (!origin || origin.includes("vercel.app") || origin.includes("localhost")) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
 
