@@ -11,9 +11,9 @@ const port = process.env.PORT || 8009;
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS configuration (Deployment ke liye zaroori)
+
 app.use(cors({
-    origin: ["http://localhost:3000", "https://your-vercel-frontend-link.vercel.app"], // Vercel wala link baad mein yahan dalna hoga
+    origin: ["http://localhost:3000", "https://mernfront-two.vercel.app"],
     credentials: true
 }));
 
